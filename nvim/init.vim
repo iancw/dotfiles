@@ -72,3 +72,23 @@ if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
 
+" relative line toggles via Ctrl-n
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+" Use absolute line numbers when unfocused
+au FocusLost * :set norelativenumber
+au FocusGained * :set relativenumber
+
+" Use absolute line numbers when in insert mode
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
+" Start in relative number mode
+set relativenumber
