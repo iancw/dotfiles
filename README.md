@@ -5,7 +5,15 @@ Storing all my unix configurations
 
 Install [`asdf`](https://github.com/asdf-vm/asdf)
 ```
+brew install coreutils automake autoconf openssl libyaml readline libxslt libtool  unixodbc gpg
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0
+```
+Install [asdf nodejs](https://github.com/asdf-vm/asdf-nodejs)
+```
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+asdf install nodejs 8.1.4
+asdf global nodejs 8.1.4
 ```
 
 Install [`neovim`](https://neovim.io)
