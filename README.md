@@ -42,3 +42,10 @@ From within `nvim` run
 ```
 :call minpac#update()
 ```
+
+Copy basic gitconfig, then add your own user info
+```
+cp gitconfig ~/.gitconfig
+git config --global user.name "User Name"
+git config --global user.email "user.email@email.org"
+```

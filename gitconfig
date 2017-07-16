@@ -1,0 +1,35 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+    editor = nvim
+[user]
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustexitcode = true
+[merge]
+    tool = Kaleidoscope
+
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+    tool = Kaleidoscope
+
+[difftool]
+    prompt = false
+
+[mergetool]
+    prompt = false
+    keepBackup = false
+
+[alias]
+    br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+    st = status -sb
+    last = !git lgs -1 --relative-date --graph HEAD
+    last5 = !git lgs -5 --relative-date --graph HEAD
+    lg = log --pretty='%C(yellow)%h - %C(blue)%an <%ae>%Creset - %ar%C(red)%d%Creset%n%s%n' --graph
+    lgs = log --pretty='%C(yellow)%h - %C(blue)%an <%ae>%Creset - %ar%C(red)%d%Creset%n%s%n' --graph --stat
+    slg = log --pretty='%C(yellow)%h:%C(blue)%an <%ae>%Creset -%C(red)%d%Creset %s %Cgreen(%ar)%Creset' --graph
+
+[branch]
+    autosetupmerge = always
+    #autosetuprebase = always
