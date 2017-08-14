@@ -1,4 +1,5 @@
 filetype plugin indent on
+
 syntax enable
 
 colorscheme smyck
@@ -9,9 +10,13 @@ set tabstop=4                                                " actual tabs occup
 set softtabstop=4                                            " insert mode tab and backspace use 4 spaces
 set shiftwidth=4                                            " normal mode indentation commands use 4 spaces
 set expandtab                                                " expand tabs to spaces
-set listchars=tab:▸\ ,trail:▫
-set ignorecase                                               " case-insensitive search
+"set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+set listchars=tab:>·,trail:-,extends:>,precedes:<
+"set list listchars=tab:>\ ,trail:-,eol:$                   this is the original
+set list
+" set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
+set ttimeoutlen=100
 
 set autoindent
 set hlsearch
@@ -21,7 +26,7 @@ set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
-set list                                                     " show trailing whitespace
+"set list                                                     " show trailing whitespace
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
 set showcmd
@@ -37,6 +42,8 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " nnoremap <leader>f :NERDTreeFind<CR>
 " nnoremap <leader>t :CtrlP<CR>
 " nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+let NERDTreeShowHidden=1
+let NERDTreeWinSize=50
 
 packadd minpac
 call minpac#init()
@@ -69,7 +76,7 @@ endif
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
-  set ttymouse=xterm2
+  " set ttymouse=xterm2
 endif
 
 " relative line toggles via Ctrl-n
