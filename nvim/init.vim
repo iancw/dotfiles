@@ -34,6 +34,8 @@ set smartcase                                                " case-sensitive se
 " set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 " set wildmenu                                                 " show a navigable menu for tab completion
 " set wildmode=longest,list,full
+" Disable swap files, they're basically 100% annoying
+set noswapfile
 
 let mapleader=','
 " nnoremap <leader>a :Ag<space>
@@ -50,12 +52,14 @@ call minpac#init()
 
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('iancw/vim-colors-smyck')
+"
+"call minpac#add('junegunn/fzf.vim')
 call minpac#add('kien/ctrlp.vim')
 call minpac#add('rking/ag.vim')
 " call minpac#add('neomake/neomake')
 " call minpac#add('pangloss/vim-javascript')
-call minpac#add('othree/yajs.vim')
-call minpac#add('dag/vim-fish')
+" call minpac#add('othree/yajs.vim')
+" call minpac#add('dag/vim-fish')
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
