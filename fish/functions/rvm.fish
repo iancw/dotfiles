@@ -1,0 +1,1 @@
+/Users/ian.will/.config/fisherman/rvm/functions/rvm.fish
